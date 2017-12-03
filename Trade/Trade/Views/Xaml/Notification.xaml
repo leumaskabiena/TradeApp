@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customstyle="clr-namespace:Trade.Style"
+             xmlns:vm="clr-namespace:Trade.ViewModels"
+             x:Class="Trade.Views.Xaml.Notification"
+             x:Name="NotificationView">
+    <ContentPage.BindingContext>
+        <vm:NotificationViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin. notification!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <customstyle:CustomListview
+                HasUnevenRows="True"
+                Margin="20,40"
+                ItemsSource="{Binding NotificationList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#eee"
+                                         Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ItemName}"
+                                           TextColor="#f35e20" />
+                                    <StackLayout>
+                                        <Label Text="{Binding Newprice}"
+                                           TextColor="#f35e20" />
+                                        <Label Text="{Binding BetterName}"
+                                           HorizontalOptions="EndAndExpand"
+                                           TextColor="#503026" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button Text="More"
+                                    IsVisible="{Binding isSelected}"
+                                            Command="{Binding Path=BindingContext.MoreCommand, Source={x:Reference HomeView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                    <Button Text="Bet"
+                                            IsVisible="{Binding isBetVisible}"
+                                            Command="{Binding Path=BindingContext.BetCommand, Source={x:Reference HomeView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </customstyle:CustomListview>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Trade.ViewModels"
+             xmlns:conv="clr-namespace:Trade.Helpers"
+             xmlns:customstyle="clr-namespace:Trade.Style"
+             x:Class="Trade.Views.Xaml.Home"
+             NavigationPage.HasBackButton="False"
+             x:Name="HomeView">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel
+            x:Name="ParentContext"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:ByteImageConverter x:Key="convertImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding MessagePropertyName}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               Color="Blue"/>
+            <customstyle:CustomListview
+                HasUnevenRows="True"
+                Margin="20,40"
+                ItemsSource="{Binding HomeItemList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#eee"
+                                         Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding src, Converter={StaticResource convertImage}}" WidthRequest="44" HeightRequest="44" IsVisible="true" />
+                                    <StackLayout>
+                                        <Label Text="{Binding title}"
+                                           TextColor="#f35e20" />
+                                        <Label Text="{Binding description}"
+                                           HorizontalOptions="EndAndExpand"
+                                           TextColor="#503026" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button Text="More"
+                                    IsVisible="{Binding isSelected}"
+                                            Command="{Binding Path=BindingContext.MoreCommand, Source={x:Reference HomeView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                    <Button Text="Bet"
+                                            IsVisible="{Binding isBetVisible}"
+                                            Command="{Binding Path=BindingContext.BetCommand, Source={x:Reference HomeView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </customstyle:CustomListview>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

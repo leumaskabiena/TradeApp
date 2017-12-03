@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Trade.ViewModels"
+             xmlns:conv="clr-namespace:Trade.Helpers"
+             xmlns:customstyle="clr-namespace:Trade.Style"
+             x:Class="Trade.Views.Xaml.More"
+             NavigationPage.HasNavigationBar="True"
+             Title="{Binding ItemName}">
+   
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:ByteImageConverter x:Key="convertImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="{Binding ItemRef}"
+                HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="{Binding Price}"
+                 HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="{Binding SellerName}"
+                 HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="{Binding Description}"
+                HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="{Binding Date}"
+                HorizontalOptions="StartAndExpand"/>
+
+
+                <Label Text="{Binding DatePropertyName}"
+                HorizontalOptions="StartAndExpand"/>
+
+
+                <customstyle:CustomListview
+                HasUnevenRows="True"
+                Margin="20,40"
+                ItemsSource="{Binding LstSrc}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="#eee"
+                                         Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding src, Converter={StaticResource convertImage}}" WidthRequest="44" HeightRequest="44" IsVisible="true" />
+                                        <StackLayout>
+                                            <Label Text="{Binding title}"
+                                           TextColor="#f35e20" />
+                                            <Label Text="{Binding description}"
+                                           HorizontalOptions="EndAndExpand"
+                                           TextColor="#503026" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </customstyle:CustomListview>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="EDIT"
+                        Command="{Binding EditCommand}"
+                        IsVisible="{Binding IsDeleteAndEditVisible}"/>
+                <Button Text="DELETE"
+                        Command="{Binding DeleteCommand}"
+                        IsVisible="{Binding IsDeleteAndEditVisible}"/>
+                <Button Text="BET"
+                        Command="{Binding BetCommand}"
+                        IsVisible="{Binding IsBetVisible}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
