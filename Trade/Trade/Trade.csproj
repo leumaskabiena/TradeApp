@@ -75,7 +75,8 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MoreViewModel.cs" />
     <Compile Include="ViewModels\MyTradeViewModel.cs" />
-    <Compile Include="ViewModels\NotificationViewModel.cs" />
+    <Compile Include="ViewModels\NotifyInViewModel.cs" />
+    <Compile Include="ViewModels\NotifyOutViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShowProfileDetailsViewModel.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Views\ManageAccount.cs" />
     <Compile Include="Views\MenuPage.cs" />
     <Compile Include="Views\Profile.cs" />
+    <Compile Include="Views\TabView.cs" />
     <Compile Include="Views\TradeMainPage.cs" />
     <Compile Include="Views\TradePage.cs" />
     <Compile Include="Views\Xaml\AboutPage.xaml.cs">
@@ -112,8 +114,11 @@
     <Compile Include="Views\Xaml\MyTrade.xaml.cs">
       <DependentUpon>MyTrade.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Xaml\Notification.xaml.cs">
-      <DependentUpon>Notification.xaml</DependentUpon>
+    <Compile Include="Views\Xaml\NotifyIn.xaml.cs">
+      <DependentUpon>NotifyIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Xaml\NotifyOut.xaml.cs">
+      <DependentUpon>NotifyOut.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Xaml\Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
@@ -211,12 +216,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Xaml\Notification.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\Xaml\Search.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -230,6 +229,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Xaml\More.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Xaml\NotifyIn.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Xaml\NotifyOut.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

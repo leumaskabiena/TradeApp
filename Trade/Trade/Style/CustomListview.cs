@@ -56,6 +56,27 @@ namespace Trade.Style
                         SelectedItem = null;
                     }
                     break;
+                case "BetItem":
+                    if (e.Item != null)
+                    {
+                        try
+                        {
+                            var vm = BindingContext as NotifyInViewModel;
+                            //  ItemClickCommand?.Execute(e.Item);
+                            BetItem betItem = e.Item as BetItem;
+                            vm.ShowExtraButtton(betItem);
+                            SelectedItem = null;
+                        }
+                        catch (Exception)
+                        {
+                            var vm = BindingContext as NotifyOutViewModel;
+                            //  ItemClickCommand?.Execute(e.Item);
+                            BetItem betItem = e.Item as BetItem;
+                            vm.ShowExtraButtton(betItem);
+                            SelectedItem = null;
+                        }
+                    }
+                    break;
             }
         }
     }

@@ -10,10 +10,10 @@ using Xamarin.Forms;
 
 namespace Trade.ViewModels
 {
-    public class NotificationViewModel : BaseViewModel
+    public class NotifyInViewModel:BaseViewModel
     {
         readonly Itrade itrade;
-        public NotificationViewModel()
+        public NotifyInViewModel()
         {
             this.itrade = DependencyService.Get<Itrade>();
             GetNotification();
@@ -47,7 +47,7 @@ namespace Trade.ViewModels
             }
         }
         BetItem DuplicateBetItem;
-        private void ShowExtraButtton(BetItem betItem)
+        public void ShowExtraButtton(BetItem betItem)
         {
             if (DuplicateBetItem == betItem)
             {
@@ -114,10 +114,10 @@ namespace Trade.ViewModels
             }
             if (IsDecline)
             {
-               // await Application.Current.MainPage.Navigation.PushAsync(new Notification());
+                await Application.Current.MainPage.DisplayAlert("Feedback", "You have Declined the Bet", "Ok");
             }
             {
-
+                await Application.Current.MainPage.DisplayAlert("Feedbackr", "An Error Occured! please try Again", "Ok");
             }
         }
         public const string AcceptCommandPropertyName = "AcceptCommand";
@@ -158,11 +158,11 @@ namespace Trade.ViewModels
             }
             if (IsAccept)
             {
-                //await Application.Current.MainPage.Navigation.PushAsync(new Notification());
+                await Application.Current.MainPage.DisplayAlert("Feedback", "You have accepted the Bet", "Ok");
             }
             else
             {
-
+                await Application.Current.MainPage.DisplayAlert("Feedbackr", "An Error Occured! please try Again", "Ok");
             }
         }
     }

@@ -15,7 +15,12 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout>
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"/>
+            </StackLayout>
             <StackLayout HorizontalOptions="StartAndExpand">
+                
                 <Label Text="{Binding ItemRef}"
                 HorizontalOptions="StartAndExpand"/>
 

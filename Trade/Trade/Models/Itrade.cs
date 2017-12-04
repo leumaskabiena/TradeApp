@@ -20,5 +20,7 @@ namespace Trade.Models
         Task<TradeItem> GetItemDetailAsync(string id);
         Task<bool> DeleteItemAsync(string id);
         Task<bool> EditItemAsync(TradeItem model);
+        Task<List<BetItem>> GetMyUpdateBetList();
+        Task UpdateList(string itemref);
     }
 }

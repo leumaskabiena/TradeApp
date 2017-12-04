@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Trade.ViewModels"
+             xmlns:customstyle="clr-namespace:Trade.Style"
+             x:Class="Trade.Views.Xaml.NotifyIn"
+             x:Name="NotificationView">
+    <ContentPage.BindingContext>
+        <vm:NotifyInViewModel x:Name="ParentContext"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"/>
+            
+            <customstyle:CustomListview ItemsSource="{Binding NotificationList}"
+                      HasUnevenRows="True"
+                      Margin="20,40">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout VerticalOptions="End">
+                                        <Label Text="{Binding ItemName}"
+                                       TextColor="Red"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="{Binding Newprice}"/>
+                                        <Label Text="{Binding BetterName}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Button Text="Accept"
+                                    IsVisible="{Binding isSelected}"
+                                            Command="{Binding Path=BindingContext.AcceptCommand, Source={x:Reference NotificationView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                    <Button Text="Decline"
+                                            IsVisible="{Binding isSelected}"
+                                            Command="{Binding Path=BindingContext.DeclineCommand, Source={x:Reference NotificationView}}"
+								            CommandParameter="{Binding .}"/>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </customstyle:CustomListview>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

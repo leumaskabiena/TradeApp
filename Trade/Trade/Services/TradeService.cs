@@ -430,5 +430,66 @@ namespace Trade.Services
                 return false;
             }
         }
+
+        public async Task<List<BetItem>> GetMyUpdateBetList()
+        {
+            baseUrl = "http://localhost:63862/api/Bet/GetUpdatedBet";
+            List<BetItem> Items = new List<BetItem>();
+            var httpClient = new HttpClient();
+            if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
+            {
+                httpClient.BaseAddress = new Uri(baseUrl);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                // Add the Authorization header with the AccessToken.
+                httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Settings.AuthLoginToken);
+
+                try
+                {
+                    var response = await httpClient.GetAsync(baseUrl);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
+                        // Items = JsonConvert.DeserializeObject<List<HomeItem>>(content);
+                        Items = JsonHelper.Deserialize<List<BetItem>>(content);
+                        //update notification
+                        Settings.Notificaton = await GetNumberOfBet();
+                        return Items;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+
+            }
+            return null;
+        }
+
+        public async Task UpdateList(string itemref)
+        {
+            baseUrl = $"http://localhost:63862/api/Bet/UpdateRead/{itemref}";
+            var item = new TradeItem();
+            var httpClient = new HttpClient();
+
+            httpClient.BaseAddress = new Uri(baseUrl);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // Add the Authorization header with the AccessToken.
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Settings.AuthLoginToken);
+
+            try
+            {
+                var response = await httpClient.GetAsync(baseUrl);
+                
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
     }
 }

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Trade.Views.Xaml
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Notification : ContentPage
+    public partial class NotifyIn : ContentPage
     {
-        public Notification()
+        public NotifyIn()
         {
             InitializeComponent();
         }

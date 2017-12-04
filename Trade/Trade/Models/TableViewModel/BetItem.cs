@@ -17,5 +17,7 @@ namespace Trade.Models.TableViewModel
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         public bool isSelected { get; set; }
+        public bool IsRead { get; set; }
+        public string Message { get; set; }
     }
 }

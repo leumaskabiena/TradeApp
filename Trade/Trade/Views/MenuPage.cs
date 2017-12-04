@@ -154,21 +154,50 @@ namespace Trade.Views
             switch (item)
             {
                 case "Home":
-                    if (home == null)
-                        home = new Home();
+                    if (Device.RuntimePlatform== Device.iOS)
+                    {
+                        if (home == null)
+                            home = new NavigationPage(new ItemsPage());
+                    }
+                    else
+                    {
+                        if (home == null)
+                            home = new Home();
+                    }
 
                     rootPage.Detail = home;
                     break;
                 case "Trade":
-                    Trade = new TradePage();
+                    if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        Trade = new NavigationPage(new TradePage());
+                    }
+                    else
+	                {
+                        Trade = new TradePage(); 
+                    }
                     rootPage.Detail = Trade;
                     break;
                 case "MyTrade":
-                    myTrade = new MyTrade();
+                    if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        myTrade = new NavigationPage(new MyTrade());
+                    }
+                    else
+                    {
+                        myTrade = new MyTrade(); 
+                    }
                     rootPage.Detail = myTrade;
                     break;
                 case "Notification":
-                    Notification = new Notification();
+                    if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        Notification = new NavigationPage(new TabView());
+                    }
+                    else
+                    {
+                        Notification = new TabView(); 
+                    }
                     rootPage.Detail = Notification;
                     break;
                 case "About":

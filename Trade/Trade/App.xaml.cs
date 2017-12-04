@@ -16,7 +16,7 @@ namespace Trade
             if (Device.RuntimePlatform == Device.iOS)
                 MainPage = new TradeMainPage();
             else
-                MainPage = new NavigationPage(new TradeMainPage() {Title="Home" });
+                MainPage = new NavigationPage(new TradeMainPage());
         }
         protected override void OnStart()
         {
