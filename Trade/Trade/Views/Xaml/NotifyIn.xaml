@@ -34,12 +34,14 @@
                                     <Button Text="Accept"
                                     IsVisible="{Binding isSelected}"
                                             Command="{Binding Path=BindingContext.AcceptCommand, Source={x:Reference NotificationView}}"
-								            CommandParameter="{Binding .}"/>
+								            CommandParameter="{Binding .}"
+                                            BackgroundColor="LawnGreen"/>
 
                                     <Button Text="Decline"
                                             IsVisible="{Binding isSelected}"
                                             Command="{Binding Path=BindingContext.DeclineCommand, Source={x:Reference NotificationView}}"
-								            CommandParameter="{Binding .}"/>
+								            CommandParameter="{Binding .}"
+                                            BackgroundColor="LawnGreen"/>
 
                                 </StackLayout>
                             </StackLayout>

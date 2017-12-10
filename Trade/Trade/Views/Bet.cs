@@ -92,7 +92,7 @@ namespace Trade.Views
                     Text = "Bet",
                     TextColor = Color.White,
                     BackgroundColor =
-                    Color.FromHex("#8BC34A")
+                    Color.LawnGreen
                 };
                 BetButton.SetBinding(Button.CommandProperty, BetViewModel.BetCommandPropertyName);
                 layout.Children.Add(BetButton);

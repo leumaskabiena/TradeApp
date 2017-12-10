@@ -28,6 +28,10 @@ namespace Trade.Style
         public CustomListview()
         {
             this.ItemTapped += CustomListview_ItemTapped;
+            if(IsPullToRefreshEnabled)
+            {
+
+            }
         }
 
         private void CustomListview_ItemTapped(object sender, ItemTappedEventArgs e)

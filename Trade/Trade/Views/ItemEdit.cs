@@ -79,7 +79,7 @@ namespace Trade.Views
                 Text = "Pick Photo",
                 TextColor = Color.White,
                 BackgroundColor =
-               Color.FromHex("#8BC34A")
+               Color.LawnGreen
             };
             PickPhoto.Clicked += PickPhoto_Clicked;
             var TakePhoto = new Button
@@ -87,7 +87,7 @@ namespace Trade.Views
                 Text = "Take Photo",
                 TextColor = Color.White,
                 BackgroundColor =
-               Color.FromHex("#8BC34A")
+               Color.LawnGreen
             };
             TakePhoto.Clicked += TakePhoto_Clicked;
             editViewModel.Img = tradeItem.Lstsrc;
@@ -108,7 +108,8 @@ namespace Trade.Views
 
             var Update = new Button
             {
-                Text = "UPDATE ITEM"
+                Text = "UPDATE ITEM",
+                BackgroundColor=Color.LawnGreen
             };
             Update.SetBinding(Button.CommandProperty, EditViewModel.UpdateCommandPropertyName);
             layout.Children.Add(Update);

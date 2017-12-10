@@ -32,7 +32,8 @@
                                     <Button Text="More "
                                             IsVisible="{Binding isSelected}"
                                             Command="{Binding Path=BindingContext.AcceptCommand, Source={x:Reference NotificationView}}"
-								            CommandParameter="{Binding .}"/>
+								            CommandParameter="{Binding .}"
+                                            BackgroundColor="LawnGreen"/>
                                 </StackLayout>
                             </StackLayout>
 

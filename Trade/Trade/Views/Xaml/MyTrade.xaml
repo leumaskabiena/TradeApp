@@ -43,7 +43,8 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Button Text="More"
-                                    IsVisible="{Binding isSelected}"/>
+                                    IsVisible="{Binding isSelected}"
+                                            BackgroundColor="LawnGreen"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

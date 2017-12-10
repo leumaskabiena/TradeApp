@@ -66,8 +66,7 @@ namespace Trade.Views
             {
                 Text = "Join Us",
                 TextColor = Color.White,
-                BackgroundColor =
-                Color.FromHex("#8BC34A")
+                BackgroundColor = Color.LawnGreen
             };
             button.SetBinding(Button.CommandProperty, RegisterViewModel.RegisterCommandPropertyName);
 

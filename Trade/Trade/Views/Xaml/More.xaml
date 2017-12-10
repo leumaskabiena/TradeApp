@@ -71,13 +71,16 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Button Text="EDIT"
                         Command="{Binding EditCommand}"
-                        IsVisible="{Binding IsDeleteAndEditVisible}"/>
+                        IsVisible="{Binding IsDeleteAndEditVisible}"
+                        BackgroundColor="LawnGreen"/>
                 <Button Text="DELETE"
                         Command="{Binding DeleteCommand}"
-                        IsVisible="{Binding IsDeleteAndEditVisible}"/>
+                        IsVisible="{Binding IsDeleteAndEditVisible}"
+                        BackgroundColor="LawnGreen"/>
                 <Button Text="BET"
                         Command="{Binding BetCommand}"
-                        IsVisible="{Binding IsBetVisible}"/>
+                        IsVisible="{Binding IsBetVisible}"
+                        BackgroundColor="LawnGreen"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

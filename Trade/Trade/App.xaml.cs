@@ -1,5 +1,6 @@
 ﻿using PushNotification.Plugin;
 using System;
+using Trade.Models;
 using Trade.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,8 +8,10 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Trade
 {
-    public partial class App : Application
+    public partial class App : Application, ILoginManager
     {
+        public static MasterDetailPage MD { get; set; }
+        public static NavigationPage NV { get; set; }
         public App()
         {
             InitializeComponent();
@@ -16,12 +19,19 @@ namespace Trade
             if (Device.RuntimePlatform == Device.iOS)
                 MainPage = new TradeMainPage();
             else
-                MainPage = new NavigationPage(new TradeMainPage());
+                MainPage = new NavigationPage(new TradeMainPage() { Title="Home"});
         }
         protected override void OnStart()
         {
           //  base.OnStart();
             //CrossPushNotification.Current.Register();
         }
+        #region ILoginManager implementation
+        public void ShowRootPage()
+        {
+            new TradeMainPage();
+        } 
+        #endregion
     }
+    
 }

@@ -43,6 +43,7 @@
     <Compile Include="Helpers\NumericValidationBehavior.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Models\ILoginManager.cs" />
     <Compile Include="Models\TableViewModel\BetItem.cs" />
     <Compile Include="Models\TableViewModel\HomeItem.cs" />
     <Compile Include="Models\TableViewModel\ImageSrc.cs" />
@@ -84,8 +85,6 @@
     <Compile Include="Views\Bet.cs" />
     <Compile Include="Views\ItemEdit.cs" />
     <Compile Include="Views\LoginPage.cs" />
-    <Compile Include="Views\MainListPage.cs" />
-    <Compile Include="Views\MainPage.cs" />
     <Compile Include="Views\ManageAccount.cs" />
     <Compile Include="Views\MenuPage.cs" />
     <Compile Include="Views\Profile.cs" />

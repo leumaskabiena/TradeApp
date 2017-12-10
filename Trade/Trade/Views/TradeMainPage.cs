@@ -14,9 +14,10 @@ namespace Trade.Views
         MenuPage menuPage;
         public TradeMainPage()
         {
+            
             menuPage = new MenuPage(this);
             Master = menuPage;
-            Detail = new Home();
+            Detail = new Home() { Title="Home"};
         }
     }
 }

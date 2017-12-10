@@ -26,7 +26,7 @@ namespace Trade.Services
         public async Task<bool> GetAccessToken(string username, string password)
         {
             var httpClient = new HttpClient();
-            baseUrl = "http://localhost:63862/Token";
+            baseUrl = "http://tradewithme.azurewebsites.net/Token";
             using (httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(baseUrl);
@@ -67,7 +67,7 @@ namespace Trade.Services
         public async Task<bool> RegisterAsync(string username, string password, string confPassword)
         {
             var httpClient = new HttpClient();
-            baseUrl = "http://localhost:63862/api/Account/Register";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Account/Register";
             using (httpClient = new HttpClient())
             {
                 //client.BaseAddress = new Uri(baseUrl);
@@ -98,7 +98,7 @@ namespace Trade.Services
         public async Task<bool> PostItemAsync(TradeItem model)
         {
 
-            baseUrl = "http://localhost:63862/api/Item/Create";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Item/Create";
             var httpClient = new HttpClient();
 
             try
@@ -137,7 +137,7 @@ namespace Trade.Services
         public async Task<List<HomeItem>> GetHomeItemAsync()
         {
             var httpClient = new HttpClient();
-            baseUrl = "http://localhost:63862/api/home/Index";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/home/Index";
             List<HomeItem> Items = new List<HomeItem>();
             try
             {
@@ -162,7 +162,7 @@ namespace Trade.Services
 
         public async Task<List<TradeItem>> GetMyItemAsync()
         {
-            baseUrl = "http://localhost:63862/api/Item/MyIndex";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Item/MyIndex";
             List<TradeItem> Items = new List<TradeItem>();
             var httpClient = new HttpClient();
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
@@ -201,7 +201,7 @@ namespace Trade.Services
         public async Task<bool> BetItem(BetItem model)
         {
             var httpClient = new HttpClient();
-            baseUrl = "http://localhost:63862/api/Bet/CreateBet";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Bet/CreateBet";
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
             {
                 httpClient.BaseAddress = new Uri(baseUrl);
@@ -234,7 +234,7 @@ namespace Trade.Services
 
         public async Task<int> GetNumberOfBet()
         {
-            baseUrl = "http://localhost:63862/api/Bet/Notify";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Bet/Notify";
             int num=0;
             var httpClient = new HttpClient();
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
@@ -269,7 +269,7 @@ namespace Trade.Services
 
         public async Task<List<BetItem>> GetMyNotUpdateBetList()
         {
-            baseUrl = "http://localhost:63862/api/Bet/MyGetNotification";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Bet/MyGetNotification";
             List<BetItem> Items = new List<BetItem>();
             var httpClient = new HttpClient();
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
@@ -307,7 +307,7 @@ namespace Trade.Services
         public async Task<bool> BetToUpdate(UpdateBet model)
         {
             var httpClient = new HttpClient();
-            baseUrl = "http://localhost:63862/api/Bet/UpdateBet";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Bet/UpdateBet";
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
             {
                 httpClient.BaseAddress = new Uri(baseUrl);
@@ -341,7 +341,7 @@ namespace Trade.Services
 
         public async Task<TradeItem> GetItemDetailAsync(string id)
         {
-            baseUrl = $"http://localhost:63862/api/item/Details/{id}";
+            baseUrl = $"http://tradewithme.azurewebsites.net/api/item/Details/{id}";
             var item = new TradeItem();
             var httpClient = new HttpClient();
             
@@ -370,7 +370,7 @@ namespace Trade.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            baseUrl = $"http://localhost:63862/api/item/Delete/{id}";
+            baseUrl = $"http://tradewithme.azurewebsites.net/api/item/Delete/{id}";
            
             var httpClient = new HttpClient();
 
@@ -396,7 +396,7 @@ namespace Trade.Services
 
         public async Task<bool> EditItemAsync(TradeItem model)
         {
-            baseUrl = "http://localhost:63862/api/Item/Edit";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Item/Edit";
             var httpClient = new HttpClient();
 
             try
@@ -433,7 +433,7 @@ namespace Trade.Services
 
         public async Task<List<BetItem>> GetMyUpdateBetList()
         {
-            baseUrl = "http://localhost:63862/api/Bet/GetUpdatedBet";
+            baseUrl = "http://tradewithme.azurewebsites.net/api/Bet/GetUpdatedBet";
             List<BetItem> Items = new List<BetItem>();
             var httpClient = new HttpClient();
             if (!string.IsNullOrEmpty(Settings.AuthLoginToken))
@@ -470,7 +470,7 @@ namespace Trade.Services
 
         public async Task UpdateList(string itemref)
         {
-            baseUrl = $"http://localhost:63862/api/Bet/UpdateRead/{itemref}";
+            baseUrl = $"http://tradewithme.azurewebsites.net/api/Bet/UpdateRead/{itemref}";
             var item = new TradeItem();
             var httpClient = new HttpClient();
 

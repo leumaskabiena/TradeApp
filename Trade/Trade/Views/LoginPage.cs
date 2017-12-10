@@ -23,9 +23,10 @@ namespace Trade.Views
             activityIndicator.SetBinding(IsVisibleProperty, "IsBusy");
             activityIndicator.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
             //  BackgroundColor = Color.Blue;
-            BackgroundImage = "LoginScreen.png";
+            BackgroundImage = "backgroundLogin.png";
             var layout = new StackLayout
             {
+                BackgroundColor=Color.DarkOrange,
                 Padding = 20,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
@@ -43,7 +44,7 @@ namespace Trade.Views
             var backgroundImage = new Image()
             {
                 Aspect = Aspect.Fill,
-                Source = FileImageSource.FromFile("Background.png")
+                Source = FileImageSource.FromFile("backgroundLogin.png")
             };
 
             layout.Children.Add(label);
@@ -62,8 +63,7 @@ namespace Trade.Views
             {
                 Text = "Log In",
                 TextColor = Color.White,
-                BackgroundColor =
-                Color.FromHex("#8BC34A")
+                BackgroundColor = Color.LawnGreen
             };
             button.SetBinding(Button.CommandProperty, LoginViewModel.LoginCommandPropertyName);
             layout.Children.Add(button);
@@ -72,8 +72,8 @@ namespace Trade.Views
             {
                 Text = "Trade with Us",
                 TextColor = Color.White,
-                BackgroundColor =
-               Color.FromHex("#8BC34A")
+                BackgroundColor =Color.LawnGreen
+
             };
             Joinus.SetBinding(Button.CommandProperty, LoginViewModel.JoinUsCommandPropertyName);
             layout.Children.Add(Joinus);

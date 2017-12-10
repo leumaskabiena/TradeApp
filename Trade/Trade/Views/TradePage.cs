@@ -83,7 +83,7 @@ namespace Trade.Views
                 Text = "Pick Photo",
                 TextColor = Color.White,
                 BackgroundColor =
-                Color.FromHex("#8BC34A")
+                Color.LawnGreen
             };
             PickPhoto.Clicked += PickPhoto_Clicked;
             
@@ -95,7 +95,7 @@ namespace Trade.Views
                 Text = "Take Photo",
                 TextColor = Color.White,
                 BackgroundColor =
-               Color.FromHex("#8BC34A")
+               Color.LawnGreen
             };
             TakePhoto.Clicked += TakePhoto_Clicked;
             //TakePhoto.SetBinding(Button.CommandProperty, TradeViewModel.TakePhotoCommandPropertyName);
@@ -108,7 +108,7 @@ namespace Trade.Views
                 Text = "Create Trade",
                 TextColor = Color.White,
                 BackgroundColor =
-               Color.FromHex("#8BC34A")
+               Color.LawnGreen
             };
             CreateTrade.SetBinding(Button.CommandProperty, TradeViewModel.CreateTradeCommandPropertyName);
             Mainlayout.Children.Add(CreateTrade);

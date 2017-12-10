@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Trade.Helpers;
 using Trade.Models;
 using Trade.Views;
+using Trade.Views.Xaml;
 using Xamarin.Forms;
 
 namespace Trade.ViewModels
@@ -46,6 +47,7 @@ namespace Trade.ViewModels
                     (loginCommand = new Command(async () => await ExecuteLoginCommand()));
             }
         }
+      
         private async Task ExecuteLoginCommand()
         {
 
@@ -59,6 +61,7 @@ namespace Trade.ViewModels
             try
             {
                 isLoginSuccess = await itrade.GetAccessToken(this.UserName, this.Password);
+                
             }
             catch (Exception ex)
             {
@@ -73,8 +76,10 @@ namespace Trade.ViewModels
 
             if (isLoginSuccess)
             {
-                Settings.AuthUserName = this.username;
-                await page.Navigation.PushAsync(new TradeMainPage());
+                await page.Navigation.PushModalAsync(new TradeMainPage());
+                //if (Device.OS == TargetPlatform.Android)
+                //    Application.Current.MainPage = new TradeMainPage();
+                //await Application.Current.MainPage.Navigation.PushAsync(new Home());
             }
             else
             {
