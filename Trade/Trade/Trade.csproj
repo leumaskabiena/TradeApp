@@ -61,6 +61,7 @@
     <Compile Include="SQLite-AppSample\SQLiteSamplePage.cs" />
     <Compile Include="SQLite-AppSample\TodoItem.cs" />
     <Compile Include="SQLite\ISQLite.cs" />
+    <Compile Include="Style\CustomButton.cs" />
     <Compile Include="Style\CustomListview.cs" />
     <Compile Include="Style\DetailsView.cs" />
     <Compile Include="Style\MenuCell.cs" />
@@ -82,9 +83,12 @@
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShowProfileDetailsViewModel.cs" />
     <Compile Include="ViewModels\TradeViewModel.cs" />
+    <Compile Include="Views\Account.cs" />
     <Compile Include="Views\Bet.cs" />
     <Compile Include="Views\ItemEdit.cs" />
     <Compile Include="Views\LoginPage.cs" />
+    <Compile Include="Views\LogOutPage.cs" />
+    <Compile Include="Views\MainPage.cs" />
     <Compile Include="Views\ManageAccount.cs" />
     <Compile Include="Views\MenuPage.cs" />
     <Compile Include="Views\Profile.cs" />
@@ -93,6 +97,9 @@
     <Compile Include="Views\TradePage.cs" />
     <Compile Include="Views\Xaml\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Xaml\HomeAndroid.xaml.cs">
+      <DependentUpon>HomeAndroid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Xaml\ItemDetailPage.xaml.cs">
       <DependentUpon>ItemDetailPage.xaml</DependentUpon>
@@ -240,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Xaml\NotifyOut.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Xaml\HomeAndroid.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

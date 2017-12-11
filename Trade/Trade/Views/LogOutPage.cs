@@ -7,15 +7,15 @@ using Xamarin.Forms;
 
 namespace Trade.Views
 {
-    public class RegisterPage : ContentPage
+    public class LogOutPage : ContentPage
     {
-        RegisterViewModel registerViewModel;
-        public RegisterPage()
+        LoginViewModel loginViewModel;
+        public LogOutPage()
         {
-            BindingContext = registerViewModel = new RegisterViewModel(this);
+            //this.Title = "Login Page";
+            //NavigationPage.SetHasNavigationBar(this, true);
+            BindingContext = loginViewModel = new LoginViewModel(this);
 
-            NavigationPage.SetHasNavigationBar(this, true);
-            Title = "Registration";
             var activityIndicator = new ActivityIndicator
             {
                 Color = Color.Blue,
@@ -23,12 +23,12 @@ namespace Trade.Views
             activityIndicator.SetBinding(IsVisibleProperty, "IsBusy");
             activityIndicator.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
             //  BackgroundColor = Color.Blue;
-            BackgroundImage = "LoginScreen.png";
+            BackgroundImage = "backgroundLogin.png";
             var layout = new StackLayout
             {
                 BackgroundColor = Color.DarkOrange,
                 Padding = 20,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
             layout.Children.Add(activityIndicator);
             var label = new Label
@@ -44,34 +44,28 @@ namespace Trade.Views
             var backgroundImage = new Image()
             {
                 Aspect = Aspect.Fill,
-                Source = FileImageSource.FromFile("Background.png")
+                Source = FileImageSource.FromFile("backgroundLogin.png")
             };
 
             layout.Children.Add(label);
 
-            var username = new Entry { Placeholder = "UserName", TextColor = Color.Gray };
-            username.SetBinding(Entry.TextProperty, RegisterViewModel.UsernamePropertyName);
-            layout.Children.Add(username);
+           
 
-            var password = new Entry { Placeholder = "Password", IsPassword = true, TextColor = Color.Gray };
-            password.SetBinding(Entry.TextProperty, RegisterViewModel.PasswordPropertyName);
-            layout.Children.Add(password);
-
-            var Confpassword = new Entry { Placeholder = "Confirm Password", IsPassword = true, TextColor = Color.Gray };
-            Confpassword.SetBinding(Entry.TextProperty, RegisterViewModel.ComfirmPasswordPropertyName);
-            layout.Children.Add(Confpassword);
+            
 
             var relativelayout = new RelativeLayout();
 
             var button = new Button
             {
-                Text = "Join Us",
+                Text = "Log Out",
                 TextColor = Color.White,
                 BackgroundColor = Color.LawnGreen
             };
-            button.SetBinding(Button.CommandProperty, RegisterViewModel.RegisterCommandPropertyName);
-
+            button.SetBinding(Button.CommandProperty, LoginViewModel.LogoutCommandPropertyName);
             layout.Children.Add(button);
+
+           
+
             relativelayout.Children.Add(backgroundImage,
                 Constraint.Constant(0),
                 Constraint.Constant(0),
@@ -101,12 +95,5 @@ namespace Trade.Views
 
             Content = new ScrollView { Content = relativelayout };
         }
-
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    Title = "Registretion";
-        //}
     }
-    
 }

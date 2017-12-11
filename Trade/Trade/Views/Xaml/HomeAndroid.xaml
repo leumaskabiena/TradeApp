@@ -4,12 +4,11 @@
              xmlns:vm="clr-namespace:Trade.ViewModels"
              xmlns:conv="clr-namespace:Trade.Helpers"
              xmlns:customstyle="clr-namespace:Trade.Style"
-             x:Class="Trade.Views.Xaml.Home"
-             NavigationPage.HasBackButton="True"
-             NavigationPage.HasNavigationBar="True"
+             x:Class="Trade.Views.Xaml.HomeAndroid"
+           
              x:Name="HomeView"
              Title="Home">
-    
+  
     <ContentPage.BindingContext>
         <vm:HomeViewModel
             x:Name="ParentContext"/>

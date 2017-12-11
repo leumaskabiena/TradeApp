@@ -18,6 +18,8 @@ namespace Trade
 
             if (Device.RuntimePlatform == Device.iOS)
                 MainPage = new TradeMainPage();
+            else if (Device.RuntimePlatform == Device.Android)
+                MainPage = new NavigationPage(new MainPage());
             else
                 MainPage = new NavigationPage(new TradeMainPage() { Title="Home"});
         }

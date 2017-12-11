@@ -47,7 +47,51 @@ namespace Trade.ViewModels
                     (loginCommand = new Command(async () => await ExecuteLoginCommand()));
             }
         }
-      
+
+        public const string LogoutCommandPropertyName = "LogoutCommand";
+        Command logoutCommand;
+        public Command LogoutCommand
+        {
+            get
+            {
+                return logoutCommand ??
+                    (logoutCommand = new Command(async () => await ExecuteLogoutCommand()));
+            }
+        }
+
+        private async Task ExecuteLogoutCommand()
+        {
+            bool isLogOutSuccess = false;
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+            logoutCommand.ChangeCanExecute();
+            try
+            {
+                Settings.AuthLoginToken = string.Empty;
+                Settings.AuthUserName = "";
+                isLogOutSuccess = true;
+            }
+            catch(Exception ex)
+            {
+                isLogOutSuccess = false;
+            }
+            finally
+            {
+                IsBusy = false;
+                logoutCommand.ChangeCanExecute();
+            }
+            if(isLogOutSuccess)
+            {
+                await page.DisplayAlert("Logout", "Successful", "Ok");
+            }
+            else
+            {
+                await page.DisplayAlert("Logout Error", "Logout Error! please try Again", "Ok");
+            }
+        }
+
         private async Task ExecuteLoginCommand()
         {
 
@@ -76,10 +120,11 @@ namespace Trade.ViewModels
 
             if (isLoginSuccess)
             {
-                await page.Navigation.PushModalAsync(new TradeMainPage());
-                //if (Device.OS == TargetPlatform.Android)
-                //    Application.Current.MainPage = new TradeMainPage();
-                //await Application.Current.MainPage.Navigation.PushAsync(new Home());
+               
+                if (Device.OS == TargetPlatform.Android)
+                 await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                else
+                    await page.Navigation.PushModalAsync(new TradeMainPage());
             }
             else
             {

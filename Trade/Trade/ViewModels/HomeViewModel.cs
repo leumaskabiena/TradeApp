@@ -30,12 +30,12 @@ namespace Trade.ViewModels
                 SetProperty(ref message, value, MessagePropertyName);
             }
         }
-
+        
         public HomeViewModel()
         {
             this.itrade = DependencyService.Get<Itrade>();
             GetHomeItem();
-            
+           
         }
 
         public ObservableCollection<HomeItem> HomeItemList
